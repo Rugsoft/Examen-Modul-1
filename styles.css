@@ -1,0 +1,507 @@
+:root {
+  color-scheme: dark;
+  --color-bg: #111111;
+  --color-header: #161a11;
+  --color-surface: #161a21;
+  --color-surface-hover: #262626;
+  --color-footer: #080b11;
+  --color-text: #ffffff;
+  --color-text-muted: #d4d4d8;
+  --color-green: #1b6157;
+  --color-gold: #c9a27d;
+  --color-border: #3c4049;
+  --color-hairline: #c4c4c4;
+  --color-btn: #52525b;
+  --color-error-bg: #2a1215;
+  --color-error-border: #f87171;
+  --color-error-text: #fecaca;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-sans: "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.contenidor {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Enllaç d'accés ràpid per a teclat */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 18px;
+  background-color: var(--color-gold);
+  color: #111111;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+/* Capçalera i navegació amb separador vertical */
+.capcalera {
+  background-color: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+  padding: 24px 0;
+}
+
+.capcalera-contingut {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.capcalera h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.3px;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+}
+
+.menu li + li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-hairline);
+  margin: 0 12px;
+}
+
+.menu a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 4px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  touch-action: manipulation;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu a:hover {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}
+
+/* Focus visible per a tots els controls interactius */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Seccions principals */
+.seccio {
+  margin: 44px 0;
+}
+
+.seccio-cap {
+  margin-bottom: 24px;
+  max-width: 65ch;
+}
+
+.seccio h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-sans);
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.intro {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+/* Targetes dels tallers (Mobile First: 1 columna) */
+.targetes-tallers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.targeta {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-green);
+  border-radius: 0;
+  padding: 0;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.targeta-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.targeta-cos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 22px 24px 24px;
+}
+
+.targeta:hover {
+  background-color: var(--color-surface-hover);
+  border-top-color: var(--color-gold);
+}
+
+.targeta h3 {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+.targeta-detalls {
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.targeta p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.etiqueta-dada {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.targeta-preu strong {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Zona de reserva (1 columna en mòbil) */
+.reserva-graella {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.formulari {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 24px;
+}
+
+.avis-errors {
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  border-left: 3px solid var(--color-error-border);
+  border-radius: 0;
+  color: var(--color-error-text);
+}
+
+.avis-errors p {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.llista-errors {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.llista-errors a {
+  color: var(--color-error-text);
+  text-underline-offset: 3px;
+}
+
+.grup-camp {
+  margin-bottom: 20px;
+}
+
+.grup-camp label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.grup-camp input,
+.grup-camp select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 4px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--color-text);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-hairline);
+  border-radius: 2px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.grup-camp select {
+  cursor: pointer;
+}
+
+.grup-camp select option {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.grup-camp input:focus,
+.grup-camp select:focus {
+  border-bottom-color: var(--color-gold);
+}
+
+.grup-camp.con-error input,
+.grup-camp.con-error select {
+  border-bottom-color: var(--color-error-border);
+  background-color: rgba(248, 113, 113, 0.08);
+}
+
+.error-msg {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--color-error-text);
+  min-height: 1.3em;
+}
+
+.btn-enviar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 10px 28px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background-color: var(--color-btn);
+  border: 1px solid #7b8086;
+  border-radius: 30px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-enviar:hover {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+}
+
+/* Zona de resum */
+.zona-resum {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 24px;
+}
+
+.zona-resum h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.resum:empty {
+  display: none;
+}
+
+@keyframes resumEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resum-targeta {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-green);
+  animation: resumEntrada 0.22s ease-out;
+}
+
+.resum-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 1px solid var(--color-border);
+}
+
+.resum-targeta p {
+  margin: 8px 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+.resum-targeta .resum-total {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-gold);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Peu */
+.peu {
+  margin-top: 64px;
+  padding: 45px 0;
+  background-color: var(--color-footer);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-hairline);
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+}
+
+.peu p {
+  margin: 0;
+}
+
+/* Adaptació a pantalles mitjanes i grans */
+@media (min-width: 768px) {
+  .capcalera {
+    padding: 28px 0;
+  }
+
+  .capcalera-contingut {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .capcalera h1 {
+    font-size: 48px;
+    line-height: 1.25;
+  }
+
+  .seccio h2 {
+    font-size: 32px;
+  }
+
+  .targetes-tallers {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .formulari,
+  .zona-resum {
+    padding: 32px;
+  }
+
+  .btn-enviar {
+    width: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .reserva-graella {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

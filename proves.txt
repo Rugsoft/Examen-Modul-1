@@ -1,0 +1,33 @@
+REGISTRE DE PROVES - TALLERS DEL CENTRE CÍVIC
+
+1. Prova: Vàlida
+- Acció: Nom i correu vàlids ("Anna Puig", "anna@centre.cat"), taller "Fotografia amb mòbil", 2 places.
+- Resultat esperat: Resum amb 2 places i total de 24 €.
+- Resultat observat: La pàgina no es recarrega. Es mostra el resum amb el nom ("Anna Puig"), el taller ("Fotografia amb mòbil"), 2 places i un total de 24 €.
+- Estat: PASSA
+
+2. Prova: Segon enviament
+- Acció: Amb dades vàlides, canvi a taller "Edició de vídeo" i 3 places.
+- Resultat esperat: El resum anterior se substitueix i el total és de 54 €.
+- Resultat observat: El resum anterior se substitueix pel nou sense duplicar blocs ni recarregar la pàgina, mostrant "Edició de vídeo", 3 places i un total de 54 €.
+- Estat: PASSA
+
+3. Prova: Invàlida
+- Acció: Després d'una reserva vàlida, provar 0 places, repetir amb 1,5 (i 1.5) i repetir amb 5.
+- Resultat esperat: En cada cas apareix un missatge sobre les places i desapareix el resum anterior.
+- Resultat observat: En tots tres casos (0, 1,5/1.5 i 5) apareix l'avís general i el missatge d'error al camp de places indicant que cal introduir un número enter entre 1 i 4, i el resum anterior desapareix.
+- Estat: PASSA
+
+4. Prova: Teclat
+- Acció: Recórrer els enllaços i completar i enviar una reserva només amb el teclat.
+- Resultat esperat: Ordre lògic, focus visible i enviament possible.
+- Resultat observat: El recorregut amb Tab segueix l'ordre lògic (enllaç d'accés ràpid "Salta al contingut principal" -> Tallers -> Reserva -> Nom complet -> Correu electrònic -> Taller -> Nombre de places -> botó "Prepara la reserva") amb el contorn daurat de focus visible a cada element. S'ha pogut seleccionar el taller, omplir els camps i enviar el formulari prement Enter.
+- Estat: PASSA
+
+5. Prova: Amplades
+- Acció: Obrir la pàgina a 360 px i a 1024 px d'amplada.
+- Resultat esperat: Contingut llegible a totes dues amplades. Una columna i cap desplaçament horitzontal a 360 px.
+- Resultat observat: A 1024 px les tres targetes es mostren en una fila de 3 columnes i el text és llegible. A 360 px les tres targetes es col·loquen en 1 sola columna vertical, tot el contingut és llegible i no hi ha desplaçament horitzontal.
+- Estat: PASSA
+
+Incidències no resoltes: Cap.

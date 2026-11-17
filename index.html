@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tallers del centre cívic</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#contingut" class="skip-link">Salta al contingut principal</a>
+
+  <header class="capcalera">
+    <div class="contenidor capcalera-contingut">
+      <h1>Tallers del centre cívic</h1>
+      <nav aria-label="Navegació principal">
+        <ul class="menu">
+          <li><a href="#tallers">Tallers</a></li>
+          <li><a href="#reserva">Reserva</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contingut" class="contenidor">
+    <section id="tallers" class="seccio" aria-labelledby="titol-tallers">
+      <div class="seccio-cap">
+        <h2 id="titol-tallers">Tallers disponibles</h2>
+        <p class="intro">Tria un dels tallers presencials d'aquest trimestre i reserva fins a 4 places.</p>
+      </div>
+
+      <div class="targetes-tallers">
+        <article class="targeta">
+          <img class="targeta-img" src="img/fotografia-mobil.jpg" alt="Telèfon mòbil en un trípode fotografiant un bodegó sobre una taula fosca" width="1024" height="571">
+          <div class="targeta-cos">
+            <h3>Fotografia amb mòbil</h3>
+            <div class="targeta-detalls">
+              <p class="targeta-dia"><span class="etiqueta-dada">Dia</span> Dimarts, 18:00 h</p>
+              <p class="targeta-preu"><span class="etiqueta-dada">Preu</span> <strong>12 € / plaça</strong></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="targeta">
+          <img class="targeta-img" src="img/edicio-video.jpg" alt="Estació d'edició de vídeo amb monitor mostrant una línia de temps cinematogràfica" width="1024" height="571">
+          <div class="targeta-cos">
+            <h3>Edició de vídeo</h3>
+            <div class="targeta-detalls">
+              <p class="targeta-dia"><span class="etiqueta-dada">Dia</span> Dijous, 18:30 h</p>
+              <p class="targeta-preu"><span class="etiqueta-dada">Preu</span> <strong>18 € / plaça</strong></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="targeta">
+          <img class="targeta-img" src="img/ceramica-creativa.jpg" alt="Mans modelant una peça de fang al torn de ceràmica" width="1024" height="571">
+          <div class="targeta-cos">
+            <h3>Ceràmica creativa</h3>
+            <div class="targeta-detalls">
+              <p class="targeta-dia"><span class="etiqueta-dada">Dia</span> Dissabte, 10:30 h</p>
+              <p class="targeta-preu"><span class="etiqueta-dada">Preu</span> <strong>15 € / plaça</strong></p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="reserva" class="seccio" aria-labelledby="titol-reserva">
+      <div class="seccio-cap">
+        <h2 id="titol-reserva">Reserva de places</h2>
+        <p class="intro">Completa les dades per calcular l'import total i preparar la teva sol·licitud.</p>
+      </div>
+
+      <div class="reserva-graella">
+        <form id="formReserva" class="formulari" novalidate>
+          <div id="avisErrors" class="avis-errors" role="alert" tabindex="-1" hidden></div>
+
+          <div class="grup-camp">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" autocomplete="name" aria-describedby="errorNom">
+            <p class="error-msg" id="errorNom"></p>
+          </div>
+
+          <div class="grup-camp">
+            <label for="correu">Correu electrònic</label>
+            <input type="email" id="correu" name="correu" autocomplete="email" aria-describedby="errorCorreu">
+            <p class="error-msg" id="errorCorreu"></p>
+          </div>
+
+          <div class="grup-camp">
+            <label for="taller">Taller</label>
+            <select id="taller" name="taller" aria-describedby="errorTaller"></select>
+            <p class="error-msg" id="errorTaller"></p>
+          </div>
+
+          <div class="grup-camp">
+            <label for="places">Nombre de places (d'1 a 4)</label>
+            <input type="number" id="places" name="places" min="1" max="4" step="1" aria-describedby="errorPlaces">
+            <p class="error-msg" id="errorPlaces"></p>
+          </div>
+
+          <button type="submit" class="btn-enviar">Prepara la reserva</button>
+        </form>
+
+        <aside class="zona-resum" aria-labelledby="titol-resum">
+          <h3 id="titol-resum">Resum de la reserva</h3>
+          <div id="resum" class="resum" role="status" aria-live="polite" aria-atomic="true"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="peu">
+    <div class="contenidor">
+      <p>Centre Cívic · Programació de tallers</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
